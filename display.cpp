@@ -6,6 +6,17 @@ struct Node{
 
 }*first=NULL;
 
+void reverse(struct Node *p){
+    struct Node *q=NULL,*r=NULL;
+    while(p!=NULL){
+        r=q; // Store the previous node
+        q=p; // Move q to the current node
+        p=p->next; // Move p to the next node
+        q->next=r; // Reverse the link
+    }
+    first=q; // Update first to point to the new head
+}
+
 void Rdisplay(struct Node *p){
     if(p!=NULL){
         
@@ -56,6 +67,8 @@ int main(){
 
     Rdisplay(first);
     cout<<endl;
+    reverse(first); // Reverse the linked list
+    cout << "Reversed list: ";
 
     rdisplay(first);
 
